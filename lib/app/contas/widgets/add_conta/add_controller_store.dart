@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:penny_saver/app/contas/models/conta_model.dart';
+import 'package:validators/validators.dart';
 
 part 'add_controller_store.g.dart';
 
@@ -24,6 +25,17 @@ abstract class _AddControllerStoreBase with Store {
   @action
   void setInitialValue(String initialValueValue) =>
       initialValue = initialValueValue;
+
+  String? validateName(String? v) {
+    if (v != null && v.isEmpty) return 'O Nome da Conta não pode ser Vazio';
+    return null;
+  }
+
+  String? validateValue(String? v) {
+    // if (v == null) return 'O Valor não pode ser vazio';
+    if (v != null && !isFloat(v)) return 'O valor informado não é válido';
+    return null;
+  }
 
   Map<String, dynamic> toMap() => {
         'name': name,

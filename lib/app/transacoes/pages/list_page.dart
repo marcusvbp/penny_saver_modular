@@ -26,7 +26,7 @@ class ListPageState extends State<ListPage> {
           showDialog(
             context: context,
             builder: (context) => Dialog(
-              child: AddFormWidget(),
+              child: AddTransactionFormWidget(),
             ),
           );
         },

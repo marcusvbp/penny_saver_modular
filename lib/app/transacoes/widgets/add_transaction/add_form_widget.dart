@@ -5,12 +5,11 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/contas/models/conta_model.dart';
 import 'package:penny_saver/app/transacoes/models/source_model.dart';
+import 'package:penny_saver/app/contas/widgets/add_conta/add_form_widget.dart';
 
 import 'add_controller_store.dart';
 
-class AddFormWidget extends StatelessWidget {
-  const AddFormWidget({Key? key}) : super(key: key);
-
+class AddTransactionFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Modular.get<AddControllerStore>();
@@ -130,7 +129,14 @@ class AddFormWidget extends StatelessWidget {
                     IconButton(
                       icon: Icon(Icons.add),
                       visualDensity: VisualDensity.compact,
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => Dialog(
+                            child: AddContaFormWidget(),
+                          ),
+                        );
+                      },
                     )
                   ],
                 ),

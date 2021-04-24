@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:penny_saver/app/contas/contas_module.dart';
 import 'package:penny_saver/app/transacoes/transacoes_module.dart';
 
 class AppModule extends Module {
@@ -10,5 +11,6 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ModuleRoute('/', module: TransacoesModule()),
+    ModuleRoute('/contas', module: ContasModule()),
   ];
 }
