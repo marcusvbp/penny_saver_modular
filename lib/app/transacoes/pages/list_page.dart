@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/transacoes/widgets/add_transaction/add_form_widget.dart';
 
 class ListPage extends StatefulWidget {
@@ -16,7 +17,14 @@ class ListPageState extends State<ListPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          MaterialButton(
+            onPressed: () {
+              Modular.to.pushNamed('/contas');
+            },
+            child: Text('contas'),
+          )
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(

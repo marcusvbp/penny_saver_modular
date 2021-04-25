@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/contas/widgets/add_conta/add_controller_store.dart';
+import 'package:penny_saver/app/contas/widgets/add_conta/add_conta_controller_store.dart';
 
 class AddContaFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final controller = Modular.get<AddControllerStore>();
+    final controller = Modular.get<AddContaControllerStore>();
     final valueInputController = TextEditingController(
       text: controller.initialValue,
     );

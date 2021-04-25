@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'add_controller_store.dart';
+part of 'add_conta_controller_store.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'add_controller_store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$AddControllerStore on _AddControllerStoreBase, Store {
-  final _$nameAtom = Atom(name: '_AddControllerStoreBase.name');
+mixin _$AddContaControllerStore on _AddContaControllerStoreBase, Store {
+  final _$nameAtom = Atom(name: '_AddContaControllerStoreBase.name');
 
   @override
   String get name {
@@ -24,7 +24,8 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
     });
   }
 
-  final _$initialValueAtom = Atom(name: '_AddControllerStoreBase.initialValue');
+  final _$initialValueAtom =
+      Atom(name: '_AddContaControllerStoreBase.initialValue');
 
   @override
   String get initialValue {
@@ -39,39 +40,39 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
     });
   }
 
-  final _$_AddControllerStoreBaseActionController =
-      ActionController(name: '_AddControllerStoreBase');
+  final _$_AddContaControllerStoreBaseActionController =
+      ActionController(name: '_AddContaControllerStoreBase');
 
   @override
   void populateFromConta(Conta conta) {
-    final _$actionInfo = _$_AddControllerStoreBaseActionController.startAction(
-        name: '_AddControllerStoreBase.populateFromConta');
+    final _$actionInfo = _$_AddContaControllerStoreBaseActionController
+        .startAction(name: '_AddContaControllerStoreBase.populateFromConta');
     try {
       return super.populateFromConta(conta);
     } finally {
-      _$_AddControllerStoreBaseActionController.endAction(_$actionInfo);
+      _$_AddContaControllerStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setName(String nameValue) {
-    final _$actionInfo = _$_AddControllerStoreBaseActionController.startAction(
-        name: '_AddControllerStoreBase.setName');
+    final _$actionInfo = _$_AddContaControllerStoreBaseActionController
+        .startAction(name: '_AddContaControllerStoreBase.setName');
     try {
       return super.setName(nameValue);
     } finally {
-      _$_AddControllerStoreBaseActionController.endAction(_$actionInfo);
+      _$_AddContaControllerStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setInitialValue(String initialValueValue) {
-    final _$actionInfo = _$_AddControllerStoreBaseActionController.startAction(
-        name: '_AddControllerStoreBase.setInitialValue');
+    final _$actionInfo = _$_AddContaControllerStoreBaseActionController
+        .startAction(name: '_AddContaControllerStoreBase.setInitialValue');
     try {
       return super.setInitialValue(initialValueValue);
     } finally {
-      _$_AddControllerStoreBaseActionController.endAction(_$actionInfo);
+      _$_AddContaControllerStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 

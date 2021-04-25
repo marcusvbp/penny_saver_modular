@@ -132,9 +132,8 @@ class AddTransactionFormWidget extends StatelessWidget {
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
-                          builder: (context) => Dialog(
-                            child: AddContaFormWidget(),
-                          ),
+                          builder: (context) =>
+                              Center(child: AddContaFormWidget()),
                         );
                       },
                     )

@@ -6,6 +6,7 @@ class ListPage extends StatefulWidget {
   @override
   ListPageState createState() => ListPageState();
 }
+
 class ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class ListPageState extends State<ListPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[Text('tela de contas')],
       ),
     );
   }
