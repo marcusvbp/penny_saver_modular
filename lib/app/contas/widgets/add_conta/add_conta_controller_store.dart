@@ -2,7 +2,7 @@ import 'package:mobx/mobx.dart';
 import 'package:penny_saver/app/contas/models/conta_model.dart';
 import 'package:validators/validators.dart';
 
-part 'add_controller_store.g.dart';
+part 'add_conta_controller_store.g.dart';
 
 class AddContaControllerStore = _AddContaControllerStoreBase
     with _$AddContaControllerStore;

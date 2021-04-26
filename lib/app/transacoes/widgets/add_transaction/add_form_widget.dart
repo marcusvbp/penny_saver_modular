@@ -132,8 +132,18 @@ class AddTransactionFormWidget extends StatelessWidget {
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
-                          builder: (context) =>
-                              Center(child: AddContaFormWidget()),
+                          builder: (context) => ListView(
+                            shrinkWrap: true,
+                            padding: const EdgeInsets.all(20),
+                            children: [
+                              Text(
+                                'Adicionar Conta',
+                                style: Theme.of(context).textTheme.headline5,
+                              ),
+                              const SizedBox(height: 20),
+                              Center(child: AddContaFormWidget())
+                            ],
+                          ),
                         );
                       },
                     )

@@ -10,6 +10,7 @@ class AddContaFormWidget extends StatelessWidget {
     final valueInputController = TextEditingController(
       text: controller.initialValue,
     );
+    final formKey = GlobalKey<FormState>();
 
     return Container(
       padding: const EdgeInsets.all(20),
@@ -17,6 +18,7 @@ class AddContaFormWidget extends StatelessWidget {
       child: Observer(
         builder: (context) {
           return Form(
+            key: formKey,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -66,7 +68,12 @@ class AddContaFormWidget extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              print(controller.toConta().toJson());
+                              Modular.to.pop();
+                            }
+                          },
                           child: Text(
                             'Salvar Conta',
                             style: TextStyle(
