@@ -16,15 +16,17 @@ class ListPageState extends State<ListPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          MaterialButton(
-            onPressed: () {
-              Modular.to.pushNamed('/contas');
-            },
-            child: Text('contas'),
-          )
-        ],
+      body: Center(
+        child: MaterialButton(
+          color: Theme.of(context).primaryColor,
+          onPressed: () {
+            Modular.to.pushNamed('/contas');
+          },
+          child: Text(
+            'contas',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
