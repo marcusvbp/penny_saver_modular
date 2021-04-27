@@ -7,6 +7,6 @@ class ContasModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, __) => ListPage(title: 'Contas')),
+    ChildRoute('/contas', child: (_, __) => ListPage(title: 'Contas')),
   ];
 }

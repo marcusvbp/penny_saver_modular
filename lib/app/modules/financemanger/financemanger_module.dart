@@ -14,7 +14,7 @@ class FinancemangerModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute('/home', module: TransacoesModule()),
+    ModuleRoute('/', module: TransacoesModule()),
     ModuleRoute('/contas', module: ContasModule()),
   ];
 }
