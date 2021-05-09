@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/modules/financemanger/financemanger_module.dart';
+import 'package:penny_saver/app/modules/transacoes/transacoes_module.dart';
 
 class AppModule extends Module {
   // Provide a list of dependencies to inject into your project
@@ -9,6 +9,6 @@ class AppModule extends Module {
   // Provide all the routes for your module
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute('/', module: FinancemangerModule()),
+    ModuleRoute('/', module: TransacoesModule()),
   ];
 }
