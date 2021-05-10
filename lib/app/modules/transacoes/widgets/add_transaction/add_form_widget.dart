@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
+import 'package:penny_saver/app/modules/contas/contas_store.dart';
 import '../../../contas/widgets/add_conta/add_form_widget.dart';
 
 import 'add_controller_store.dart';
@@ -19,6 +20,7 @@ class AddTransactionFormWidget extends StatelessWidget {
     final valueInputController = TextEditingController(
       text: controller.value,
     );
+    final contasStore = Modular.get<ContasStore>();
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),
@@ -36,7 +38,10 @@ class AddTransactionFormWidget extends StatelessWidget {
                 // ),
                 SwitchListTile(
                   value: controller.valueIsNegative,
-                  onChanged: (v) => controller.toggleValueIsNegative(),
+                  onChanged: (v) {
+                    controller.setSource(null);
+                    controller.toggleValueIsNegative();
+                  },
                   title: Text('Retirada'),
                 ),
                 const SizedBox(height: 20),
@@ -86,37 +91,48 @@ class AddTransactionFormWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Expanded(
-                      child: DropdownButtonFormField<Source>(
-                        items: [],
-                        onChanged: (v) {
-                          if (v != null) controller.setSource(v);
-                        },
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Origem da grana',
+                if (!controller.valueIsNegative)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: DropdownButtonFormField<Source>(
+                            items: [],
+                            onChanged: (v) {
+                              if (v != null) controller.setSource(v);
+                            },
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Origem da grana',
+                            ),
+                          ),
                         ),
-                      ),
+                        const SizedBox(width: 10),
+                        IconButton(
+                          icon: Icon(Icons.add),
+                          visualDensity: VisualDensity.compact,
+                          onPressed: () {},
+                        )
+                      ],
                     ),
-                    const SizedBox(width: 10),
-                    IconButton(
-                      icon: Icon(Icons.add),
-                      visualDensity: VisualDensity.compact,
-                      onPressed: () {},
-                    )
-                  ],
-                ),
-                const SizedBox(height: 20),
+                  ),
                 Row(
                   children: [
                     Expanded(
                       child: DropdownButtonFormField<Conta>(
-                        items: [],
+                        items: contasStore.contas
+                            .map(
+                              (e) => DropdownMenuItem<Conta>(
+                                child: Text(e.name),
+                                value: e,
+                              ),
+                            )
+                            .toList(),
                         onChanged: (v) {
                           if (v != null) controller.setConta(v);
                         },
+                        value: controller.destinationAccount,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: controller.valueIsNegative
@@ -179,7 +195,9 @@ class AddTransactionFormWidget extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: double.parse(controller.value) == 0
+                              ? null
+                              : () {},
                           child: Text(
                             controller.valueIsNegative
                                 ? 'CASH-OUT... :('

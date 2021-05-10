@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:penny_saver/app/modules/contas/contas_store.dart';
 import 'add_conta_controller_store.dart';
 
 class AddContaFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = AddContaControllerStore();
+    final constasStore = Modular.get<ContasStore>();
     final valueInputController = TextEditingController(
       text: controller.initialValue,
     );
@@ -70,7 +72,7 @@ class AddContaFormWidget extends StatelessWidget {
                         child: OutlinedButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              print(controller.toConta().toJson());
+                              constasStore.addConta(controller.toConta());
                               Modular.to.pop();
                             }
                           },

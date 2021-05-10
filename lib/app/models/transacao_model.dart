@@ -7,8 +7,8 @@ class Transacao {
   final String observation;
   final double value;
   final DateTime date;
-  final Conta account;
-  final Source source;
+  final Conta? account;
+  final Source? source;
 
   Transacao({
     this.observation = '',
@@ -23,8 +23,8 @@ class Transacao {
       'observation': observation,
       'value': value,
       'date': date.millisecondsSinceEpoch,
-      'account': account.toMap(),
-      'source': source.toMap(),
+      'account': account?.toMap(),
+      'source': source?.toMap(),
     };
   }
 

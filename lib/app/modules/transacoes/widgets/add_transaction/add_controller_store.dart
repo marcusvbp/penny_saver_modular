@@ -19,10 +19,10 @@ abstract class _AddControllerStoreBase with Store {
   DateTime date = DateTime.now();
 
   @observable
-  late Conta destinationAccount;
+  Conta? destinationAccount;
 
   @observable
-  late Source sourceOrigin;
+  Source? sourceOrigin;
 
   @observable
   bool isEditing = false;
@@ -40,10 +40,10 @@ abstract class _AddControllerStoreBase with Store {
   void setDate(DateTime dateValue) => date = dateValue;
 
   @action
-  void setConta(Conta contaValue) => destinationAccount = contaValue;
+  void setConta(Conta? contaValue) => destinationAccount = contaValue;
 
   @action
-  void setSource(Source sourceValue) => sourceOrigin = sourceValue;
+  void setSource(Source? sourceValue) => sourceOrigin = sourceValue;
 
   @action
   void setIsEditing(bool value) => isEditing = value;
@@ -66,18 +66,20 @@ abstract class _AddControllerStoreBase with Store {
     return null;
   }
 
-  Transacao toTransacao() => Transacao(
-        value: double.parse(value),
-        date: date,
-        account: destinationAccount,
-        source: sourceOrigin,
-      );
+  Transacao toTransacao() {
+    return Transacao(
+      value: double.parse(value),
+      date: date,
+      account: destinationAccount,
+      source: sourceOrigin,
+    );
+  }
 
   Map<String, dynamic> toMap() => {
         'observation': observation,
         'value': double.parse(value),
         'date': date.millisecondsSinceEpoch,
-        'destinationAccount': destinationAccount.toMap(),
-        'sourceOrigin': sourceOrigin.toMap(),
+        'destinationAccount': destinationAccount?.toMap(),
+        'sourceOrigin': sourceOrigin?.toMap(),
       };
 }

@@ -58,13 +58,13 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
       Atom(name: '_AddControllerStoreBase.destinationAccount');
 
   @override
-  Conta get destinationAccount {
+  Conta? get destinationAccount {
     _$destinationAccountAtom.reportRead();
     return super.destinationAccount;
   }
 
   @override
-  set destinationAccount(Conta value) {
+  set destinationAccount(Conta? value) {
     _$destinationAccountAtom.reportWrite(value, super.destinationAccount, () {
       super.destinationAccount = value;
     });
@@ -73,13 +73,13 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
   final _$sourceOriginAtom = Atom(name: '_AddControllerStoreBase.sourceOrigin');
 
   @override
-  Source get sourceOrigin {
+  Source? get sourceOrigin {
     _$sourceOriginAtom.reportRead();
     return super.sourceOrigin;
   }
 
   @override
-  set sourceOrigin(Source value) {
+  set sourceOrigin(Source? value) {
     _$sourceOriginAtom.reportWrite(value, super.sourceOrigin, () {
       super.sourceOrigin = value;
     });
@@ -153,7 +153,7 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
   }
 
   @override
-  void setConta(Conta contaValue) {
+  void setConta(Conta? contaValue) {
     final _$actionInfo = _$_AddControllerStoreBaseActionController.startAction(
         name: '_AddControllerStoreBase.setConta');
     try {
@@ -164,7 +164,7 @@ mixin _$AddControllerStore on _AddControllerStoreBase, Store {
   }
 
   @override
-  void setSource(Source sourceValue) {
+  void setSource(Source? sourceValue) {
     final _$actionInfo = _$_AddControllerStoreBaseActionController.startAction(
         name: '_AddControllerStoreBase.setSource');
     try {
