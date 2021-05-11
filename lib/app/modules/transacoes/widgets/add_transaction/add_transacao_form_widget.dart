@@ -6,7 +6,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
 import 'package:penny_saver/app/modules/contas/contas_store.dart';
-import '../../../contas/widgets/add_conta/add_form_widget.dart';
+import 'package:penny_saver/app/modules/sources/sources_store.dart';
+import 'package:penny_saver/app/modules/sources/widgets/add_source/add_source_form_widget.dart';
+import 'package:penny_saver/app/modules/transacoes/transacoes_store.dart';
+import '../../../contas/widgets/add_conta/add_conta_form_widget.dart';
 
 import 'add_controller_store.dart';
 
@@ -21,6 +24,8 @@ class AddTransactionFormWidget extends StatelessWidget {
       text: controller.value,
     );
     final contasStore = Modular.get<ContasStore>();
+    final sourcesStore = Modular.get<SourcesStore>();
+    final transacoesStore = Modular.get<TransacoesStore>();
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),
@@ -98,7 +103,14 @@ class AddTransactionFormWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: DropdownButtonFormField<Source>(
-                            items: [],
+                            items: sourcesStore.sources
+                                .map(
+                                  (e) => DropdownMenuItem<Source>(
+                                    child: Text(e.name),
+                                    value: e,
+                                  ),
+                                )
+                                .toList(),
                             onChanged: (v) {
                               if (v != null) controller.setSource(v);
                             },
@@ -112,7 +124,24 @@ class AddTransactionFormWidget extends StatelessWidget {
                         IconButton(
                           icon: Icon(Icons.add),
                           visualDensity: VisualDensity.compact,
-                          onPressed: () {},
+                          onPressed: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) => ListView(
+                                shrinkWrap: true,
+                                padding: const EdgeInsets.all(20),
+                                children: [
+                                  Text(
+                                    'Adicionar Fonte Pagadora',
+                                    style:
+                                        Theme.of(context).textTheme.headline5,
+                                  ),
+                                  const SizedBox(height: 20),
+                                  Center(child: AddSourceFormWidget())
+                                ],
+                              ),
+                            );
+                          },
                         )
                       ],
                     ),
@@ -197,7 +226,10 @@ class AddTransactionFormWidget extends StatelessWidget {
                         child: OutlinedButton(
                           onPressed: double.parse(controller.value) == 0
                               ? null
-                              : () {},
+                              : () {
+                                  transacoesStore.add(controller.toTransacao());
+                                  Modular.to.pop();
+                                },
                           child: Text(
                             controller.valueIsNegative
                                 ? 'CASH-OUT... :('

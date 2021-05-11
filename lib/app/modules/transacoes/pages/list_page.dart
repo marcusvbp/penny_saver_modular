@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../widgets/add_transaction/add_form_widget.dart';
+import '../widgets/add_transaction/add_transacao_form_widget.dart';
 
 class ListPage extends StatefulWidget {
   final String title;
@@ -36,7 +36,7 @@ class ListPageState extends State<ListPage> {
           showDialog(
             context: context,
             builder: (context) => Dialog(
-              child: AddTransactionFormWidget(),
+              child: SingleChildScrollView(child: AddTransactionFormWidget()),
             ),
           );
         },

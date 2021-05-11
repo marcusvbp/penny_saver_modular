@@ -17,6 +17,11 @@ abstract class _AddSourceFormStoreBase with Store {
   @action
   void setObservations(String value) => observations = value;
 
+  String? validateName(String? value) {
+    if (value == null) return 'O Nome não pode ser vazio';
+    return null;
+  }
+
   Map<String, dynamic> toMap() => {
         'name': name,
         'observations': observations,

@@ -1,11 +1,11 @@
 import 'package:mobx/mobx.dart';
 import 'package:penny_saver/app/models/source_model.dart';
 
-part 'souces_store.g.dart';
+part 'sources_store.g.dart';
 
-class SoucesStoreStore = _SoucesStoreStoreBase with _$SoucesStoreStore;
+class SourcesStore = _SourcesStoreBase with _$SourcesStore;
 
-abstract class _SoucesStoreStoreBase with Store {
+abstract class _SourcesStoreBase with Store {
   @observable
   ObservableList<Source> sources = ObservableList.of([]);
 
