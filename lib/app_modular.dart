@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/modules/contas/contas_module.dart';
 import 'package:penny_saver/app/modules/contas/contas_store.dart';
-import 'package:penny_saver/app/modules/sources/souces_store.dart';
+import 'package:penny_saver/app/modules/sources/sources_store.dart';
 import 'package:penny_saver/app/modules/transacoes/transacoes_module.dart';
 import 'package:penny_saver/app/modules/transacoes/transacoes_store.dart';
 import 'package:penny_saver/app/pages/403_page.dart';
@@ -12,7 +12,7 @@ class AppModule extends Module {
   final List<Bind> binds = [
     Bind.lazySingleton((i) => TransacoesStore()),
     Bind.lazySingleton((i) => ContasStore()),
-    Bind.lazySingleton((i) => SoucesStoreStore()),
+    Bind.lazySingleton((i) => SourcesStore()),
   ];
 
   // Provide all the routes for your module

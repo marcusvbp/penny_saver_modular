@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/modules/sources/sources_store.dart';
+import 'package:penny_saver/app/modules/contas/contas_store.dart';
+import 'add_conta_controller_store.dart';
 
-import 'add_source_form_controller.dart';
-
-class AddSourceFormWidget extends StatelessWidget {
-  const AddSourceFormWidget({Key? key}) : super(key: key);
-
+class AddContaFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final controller = AddSourceFormStore();
-    final sourcesStore = Modular.get<SourcesStore>();
-    final nameFieldEditingController = TextEditingController(
-      text: controller.name,
-    );
-    final observationsFieldEditingController = TextEditingController(
-      text: controller.observations,
+    final controller = AddContaControllerStore();
+    final constasStore = Modular.get<ContasStore>();
+    final valueInputController = TextEditingController(
+      text: controller.initialValue,
     );
     final formKey = GlobalKey<FormState>();
 
@@ -28,23 +23,30 @@ class AddSourceFormWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextFormField(
-              controller: nameFieldEditingController,
+              initialValue: '',
               onChanged: controller.setName,
               validator: controller.validateName,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Nome da Fonte Pagadora',
+                labelText: 'Nome da Conta',
               ),
             ),
             const SizedBox(height: 20),
             TextFormField(
-              controller: observationsFieldEditingController,
-              onChanged: controller.setObservations,
-              minLines: 1,
-              maxLines: 3,
+              controller: valueInputController,
+              onChanged: (v) {
+                controller.setInitialValue(v);
+              },
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.right,
+              onTap: () {
+                valueInputController.text = '';
+              },
+              validator: controller.validateValue,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Observação',
+                labelText: 'Valor Inicial da Conta',
+                prefixText: '\$ ',
               ),
             ),
             const SizedBox(height: 20),
@@ -68,7 +70,7 @@ class AddSourceFormWidget extends StatelessWidget {
                     child: OutlinedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          sourcesStore.addConta(controller.toSource());
+                          constasStore.addConta(controller.toConta());
                           Modular.to.pop();
                         }
                       },

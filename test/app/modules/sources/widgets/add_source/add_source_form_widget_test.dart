@@ -5,7 +5,7 @@ import 'package:flutter_modular_test/flutter_modular_test.dart';
 main() {
   group('AddSourceFormWidget', () {
     testWidgets('has a title and message', (WidgetTester tester) async {
-      await tester.pumpWidget(buildTestableWidget(AddSourceFormWidget(title: 'T')));
+      await tester.pumpWidget(buildTestableWidget(AddSourceFormWidget()));
       final titleFinder = find.text('T');
       expect(titleFinder, findsOneWidget);
     });
