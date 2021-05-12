@@ -4,21 +4,33 @@ import 'package:penny_saver/app/modules/sources/sources_store.dart';
 
 import 'add_source_form_controller.dart';
 
-class AddSourceFormWidget extends StatelessWidget {
+class AddSourceFormWidget extends StatefulWidget {
   const AddSourceFormWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final controller = AddSourceFormStore();
-    final sourcesStore = Modular.get<SourcesStore>();
-    final nameFieldEditingController = TextEditingController(
+  _AddSourceFormWidgetState createState() => _AddSourceFormWidgetState();
+}
+
+class _AddSourceFormWidgetState extends State<AddSourceFormWidget> {
+  final controller = AddSourceFormStore();
+  final sourcesStore = Modular.get<SourcesStore>();
+  late TextEditingController nameFieldEditingController;
+  late TextEditingController observationsFieldEditingController;
+  final formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    nameFieldEditingController = TextEditingController(
       text: controller.name,
     );
-    final observationsFieldEditingController = TextEditingController(
+    observationsFieldEditingController = TextEditingController(
       text: controller.observations,
     );
-    final formKey = GlobalKey<FormState>();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),

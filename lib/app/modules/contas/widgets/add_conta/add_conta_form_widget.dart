@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/modules/contas/contas_store.dart';
 import 'add_conta_controller_store.dart';
 
-class AddContaFormWidget extends StatelessWidget {
+class AddContaFormWidget extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    final controller = AddContaControllerStore();
-    final constasStore = Modular.get<ContasStore>();
-    final valueInputController = TextEditingController(
+  _AddContaFormWidgetState createState() => _AddContaFormWidgetState();
+}
+
+class _AddContaFormWidgetState extends State<AddContaFormWidget> {
+  final controller = AddContaControllerStore();
+
+  final constasStore = Modular.get<ContasStore>();
+
+  final formKey = GlobalKey<FormState>();
+
+  late TextEditingController valueInputController;
+
+  @override
+  void initState() {
+    super.initState();
+    valueInputController = TextEditingController(
       text: controller.initialValue,
     );
-    final formKey = GlobalKey<FormState>();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),

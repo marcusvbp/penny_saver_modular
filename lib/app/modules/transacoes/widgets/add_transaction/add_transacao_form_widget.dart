@@ -13,19 +13,33 @@ import '../../../contas/widgets/add_conta/add_conta_form_widget.dart';
 
 import 'add_controller_store.dart';
 
-class AddTransactionFormWidget extends StatelessWidget {
+class AddTransactionFormWidget extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    final controller = AddControllerStore();
-    final dateInputController = TextEditingController(
+  _AddTransactionFormWidgetState createState() =>
+      _AddTransactionFormWidgetState();
+}
+
+class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
+  final controller = AddControllerStore();
+  late TextEditingController dateInputController;
+  late TextEditingController valueInputController;
+  final contasStore = Modular.get<ContasStore>();
+  final sourcesStore = Modular.get<SourcesStore>();
+  final transacoesStore = Modular.get<TransacoesStore>();
+
+  @override
+  void initState() {
+    super.initState();
+    dateInputController = TextEditingController(
       text: UtilData.obterDataDDMMAAAA(controller.date),
     );
-    final valueInputController = TextEditingController(
+    valueInputController = TextEditingController(
       text: controller.value,
     );
-    final contasStore = Modular.get<ContasStore>();
-    final sourcesStore = Modular.get<SourcesStore>();
-    final transacoesStore = Modular.get<TransacoesStore>();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),
