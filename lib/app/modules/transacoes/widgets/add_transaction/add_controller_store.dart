@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import '../../../../models/conta_model.dart';
+import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
 import 'package:penny_saver/app/models/transacao_model.dart';
 import 'package:validators/validators.dart';
@@ -72,6 +72,7 @@ abstract class _AddControllerStoreBase with Store {
       date: date,
       account: destinationAccount,
       source: sourceOrigin,
+      observation: observation,
     );
   }
 

@@ -15,7 +15,7 @@ class Transacao {
     required this.value,
     required this.date,
     required this.account,
-    required this.source,
+    this.source,
   });
 
   Map<String, dynamic> toMap() {
