@@ -1,13 +1,22 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'source_model.dart';
 
+part 'transacao_model.g.dart';
+
+@HiveType(typeId: 1)
 class Transacao {
+  @HiveField(0)
   final String observation;
+  @HiveField(1)
   final double value;
+  @HiveField(2)
   final DateTime date;
+  @HiveField(3)
   final Conta? account;
+  @HiveField(4)
   final Source? source;
 
   Transacao({

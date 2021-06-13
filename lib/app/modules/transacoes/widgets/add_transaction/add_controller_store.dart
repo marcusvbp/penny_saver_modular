@@ -61,7 +61,6 @@ abstract class _AddControllerStoreBase with Store {
   }
 
   String? validateValue(String v) {
-    // if (v == null) return 'O Valor não pode ser vazio';
     if (!isFloat(v)) return 'O valor informado não é válido';
     return null;
   }

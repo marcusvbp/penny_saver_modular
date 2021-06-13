@@ -51,10 +51,6 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Switch(
-                //   value: controller.valueIsNegative,
-                //   onChanged: (v) => controller.toggleValueIsNegative(),
-                // ),
                 SwitchListTile(
                   value: controller.valueIsNegative,
                   onChanged: (v) {
@@ -69,6 +65,10 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                   onChanged: (v) {
                     controller.setValue(v);
                   },
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    RealInputFormatter(centavos: true),
+                  ],
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.right,
                   onTap: () {
@@ -238,7 +238,8 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: double.parse(controller.value) == 0
+                          onPressed: (double.tryParse(controller.value) ?? 0) ==
+                                  0
                               ? null
                               : () {
                                   transacoesStore.add(controller.toTransacao());
