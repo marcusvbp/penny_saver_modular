@@ -7,7 +7,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class TransacoesModule extends Module {
   @override
   final List<Bind> binds = [
-    AsyncBind((i) => Hive.openBox('transacoesBox')),
+    AsyncBind((i) => Hive.openBox('TransacoesBox')),
     Bind.instance((i) => TransacoesStorage(i)),
   ];
 

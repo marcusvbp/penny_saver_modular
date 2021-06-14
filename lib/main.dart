@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:hive/hive.dart';
@@ -6,10 +8,13 @@ import 'package:penny_saver/app/models/source_model.dart';
 import 'package:penny_saver/app/models/transacao_model.dart';
 import 'package:penny_saver/app_modular.dart';
 
-void main() {
-  Hive.registerAdapter(TransacaoAdapter());
-  Hive.registerAdapter(ContaAdapter());
-  Hive.registerAdapter(SourceAdapter());
+void main() async {
+  var path = Directory.current.path;
+  Hive
+    ..init(path)
+    ..registerAdapter(TransacaoAdapter())
+    ..registerAdapter(ContaAdapter())
+    ..registerAdapter(SourceAdapter());
 
   runApp(ModularApp(module: AppModule(), child: MyApp()));
 }

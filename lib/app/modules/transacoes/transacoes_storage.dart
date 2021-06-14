@@ -8,7 +8,7 @@ class TransacoesStorage {
   Future<List<Transacao>> getTransacoes() async {
     List<Transacao> list = [];
     try {
-      list = await box.get('transacoes');
+      list = await box.get('transacoes', defaultValue: <Transacao>[]);
     } catch (e) {
       print('TransacoesStorage getTransacoes error');
       print(e);
@@ -19,7 +19,7 @@ class TransacoesStorage {
 
   Future<void> saveTransacoes(List<Transacao> transacoes) async {
     try {
-      await box.put(transacoes, transacoes);
+      await box.put('transacoes', transacoes);
     } catch (e) {
       print('TransacoesStorage saveTransacoes error');
       print(e);
