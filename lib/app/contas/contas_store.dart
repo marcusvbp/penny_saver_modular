@@ -19,13 +19,13 @@ abstract class _ContasStoreBase with Store {
   }
 
   @action
-  addConta(Conta conta) async {
+  Future<void> addConta(Conta conta) async {
     contas.add(conta);
     await storage.saveContas(contas);
   }
 
   @action
-  removeConta(Conta conta) async {
+  Future<void> removeConta(Conta conta) async {
     contas.remove(conta);
     await storage.saveContas(contas);
   }

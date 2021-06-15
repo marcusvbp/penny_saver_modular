@@ -27,7 +27,6 @@ class _AddContaFormWidgetState extends State<AddContaFormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    constasStore.rehydrate();
     return Container(
       padding: const EdgeInsets.all(20),
       constraints: BoxConstraints(maxWidth: 600),

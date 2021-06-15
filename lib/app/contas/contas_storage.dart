@@ -9,7 +9,7 @@ class ContasStorage {
   Future<List<Conta>> getContas() async {
     List<Conta> list = [];
     try {
-      list = await box.get('contas', defaultValue: <Conta>[]);
+      list = List<Conta>.from(await box.get('contas', defaultValue: <Conta>[]));
     } catch (e) {
       print('ContasStorage getContas error');
       print(e);

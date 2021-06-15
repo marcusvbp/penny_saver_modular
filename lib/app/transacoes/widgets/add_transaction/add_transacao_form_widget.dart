@@ -36,6 +36,8 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
     valueInputController = TextEditingController(
       text: controller.value,
     );
+    contasStore.rehydrate();
+    sourcesStore.rehydrate();
   }
 
   @override

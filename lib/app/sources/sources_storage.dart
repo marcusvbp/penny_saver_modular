@@ -8,9 +8,25 @@ class SourcesStorage {
 
   Future<List<Source>> getSources() async {
     List<Source> list = [];
-
+    try {
+      list = List<Source>.from(
+        await box.get('sources', defaultValue: <Source>[]),
+      );
+    } catch (e) {
+      print('SourcesStorage getSources error');
+      print(e);
+      throw e;
+    }
     return list;
   }
 
-  Future<void> saveSources(List<Source> sources) async {}
+  Future<void> saveSources(List<Source> sources) async {
+    try {
+      await box.put('sources', sources);
+    } catch (e) {
+      print('SourcesStorage saveSources error');
+      print(e);
+      throw e;
+    }
+  }
 }

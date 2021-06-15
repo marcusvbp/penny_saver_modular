@@ -39,6 +39,13 @@ mixin _$TransacoesStore on _TransacoesStoreBase, Store {
     });
   }
 
+  final _$rehydrateAsyncAction = AsyncAction('_TransacoesStoreBase.rehydrate');
+
+  @override
+  Future<void> rehydrate() {
+    return _$rehydrateAsyncAction.run(() => super.rehydrate());
+  }
+
   final _$_TransacoesStoreBaseActionController =
       ActionController(name: '_TransacoesStoreBase');
 

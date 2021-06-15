@@ -9,7 +9,7 @@ void main() async {
   late SourcesStorage sourcesStorage;
 
   setUpAll(() async {
-    var path = Directory.current.path;
+    var path = '${Directory.current.path}/lib/app/hive_db';
     Hive
       ..init(path)
       ..registerAdapter(SourceAdapter());

@@ -24,29 +24,25 @@ mixin _$ContasStore on _ContasStoreBase, Store {
     });
   }
 
-  final _$_ContasStoreBaseActionController =
-      ActionController(name: '_ContasStoreBase');
+  final _$rehydrateAsyncAction = AsyncAction('_ContasStoreBase.rehydrate');
 
   @override
-  dynamic addConta(Conta conta) {
-    final _$actionInfo = _$_ContasStoreBaseActionController.startAction(
-        name: '_ContasStoreBase.addConta');
-    try {
-      return super.addConta(conta);
-    } finally {
-      _$_ContasStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> rehydrate() {
+    return _$rehydrateAsyncAction.run(() => super.rehydrate());
   }
 
+  final _$addContaAsyncAction = AsyncAction('_ContasStoreBase.addConta');
+
   @override
-  dynamic removeConta(Conta conta) {
-    final _$actionInfo = _$_ContasStoreBaseActionController.startAction(
-        name: '_ContasStoreBase.removeConta');
-    try {
-      return super.removeConta(conta);
-    } finally {
-      _$_ContasStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> addConta(Conta conta) {
+    return _$addContaAsyncAction.run(() => super.addConta(conta));
+  }
+
+  final _$removeContaAsyncAction = AsyncAction('_ContasStoreBase.removeConta');
+
+  @override
+  Future<void> removeConta(Conta conta) {
+    return _$removeContaAsyncAction.run(() => super.removeConta(conta));
   }
 
   @override

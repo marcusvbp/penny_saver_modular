@@ -9,7 +9,7 @@ void main() async {
   late TransacoesStorage transacoesStorage;
 
   setUpAll(() async {
-    var path = Directory.current.path;
+    var path = '${Directory.current.path}/lib/app/hive_db';
     Hive
       ..init(path)
       ..registerAdapter(TransacaoAdapter());
