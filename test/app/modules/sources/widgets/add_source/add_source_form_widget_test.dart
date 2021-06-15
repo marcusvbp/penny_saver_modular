@@ -1,4 +1,4 @@
-import 'package:penny_saver/app/modules/sources/widgets/add_source/add_source_form_widget.dart';
+import 'package:penny_saver/app/sources/widgets/add_source/add_source_form_widget.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_modular_test/flutter_modular_test.dart';
 

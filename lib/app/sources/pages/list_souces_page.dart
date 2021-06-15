@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ListSoucesPage extends StatefulWidget {
+class ListSourcesPage extends StatefulWidget {
   final String title;
-  const ListSoucesPage({Key? key, this.title = 'ListSoucesPage'}) : super(key: key);
+  const ListSourcesPage({Key? key, this.title = 'ListSoucesPage'})
+      : super(key: key);
   @override
-  ListSoucesPageState createState() => ListSoucesPageState();
+  ListSourcesPageState createState() => ListSourcesPageState();
 }
-class ListSoucesPageState extends State<ListSoucesPage> {
+
+class ListSourcesPageState extends State<ListSourcesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

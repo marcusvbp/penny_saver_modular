@@ -5,10 +5,10 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
-import 'package:penny_saver/app/modules/contas/contas_store.dart';
-import 'package:penny_saver/app/modules/sources/sources_store.dart';
-import 'package:penny_saver/app/modules/sources/widgets/add_source/add_source_form_widget.dart';
-import 'package:penny_saver/app/modules/transacoes/transacoes_store.dart';
+import 'package:penny_saver/app/contas/contas_store.dart';
+import 'package:penny_saver/app/sources/sources_store.dart';
+import 'package:penny_saver/app/sources/widgets/add_source/add_source_form_widget.dart';
+import 'package:penny_saver/app/transacoes/transacoes_store.dart';
 import '../../../contas/widgets/add_conta/add_conta_form_widget.dart';
 
 import 'add_controller_store.dart';

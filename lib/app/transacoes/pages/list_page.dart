@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../widgets/add_transaction/add_transacao_form_widget.dart';
 
-class ListPage extends StatefulWidget {
+class ListTransacoesPage extends StatefulWidget {
   final String title;
-  const ListPage({Key? key, this.title = 'ListPage'}) : super(key: key);
+  const ListTransacoesPage({Key? key, this.title = 'ListPage'})
+      : super(key: key);
   @override
-  ListPageState createState() => ListPageState();
+  ListTransacoesPageState createState() => ListTransacoesPageState();
 }
 
-class ListPageState extends State<ListPage> {
+class ListTransacoesPageState extends State<ListTransacoesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

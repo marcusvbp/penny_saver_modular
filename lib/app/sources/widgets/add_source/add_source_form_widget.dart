@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/modules/sources/sources_store.dart';
+import 'package:penny_saver/app/sources/sources_store.dart';
 
 import 'add_source_form_controller.dart';
 

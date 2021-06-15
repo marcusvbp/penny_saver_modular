@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/modules/contas/contas_store.dart';
+import 'package:penny_saver/app/contas/contas_store.dart';
 import 'add_conta_controller_store.dart';
 
 class AddContaFormWidget extends StatefulWidget {

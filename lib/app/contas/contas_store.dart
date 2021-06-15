@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import 'package:penny_saver/app/modules/contas/contas_storage.dart';
-import '../../models/conta_model.dart';
+import 'package:penny_saver/app/contas/contas_storage.dart';
+import '../models/conta_model.dart';
 
 part 'contas_store.g.dart';
 

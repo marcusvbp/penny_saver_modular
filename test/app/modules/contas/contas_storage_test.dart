@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
-import 'package:penny_saver/app/modules/contas/contas_storage.dart';
+import 'package:penny_saver/app/contas/contas_storage.dart';
 
 void main() async {
   late ContasStorage contasStorage;

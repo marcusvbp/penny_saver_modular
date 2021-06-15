@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:penny_saver/app/models/source_model.dart';
-import 'package:penny_saver/app/modules/sources/sources_storage.dart';
+import 'package:penny_saver/app/sources/sources_storage.dart';
 
 void main() async {
   late SourcesStorage sourcesStorage;

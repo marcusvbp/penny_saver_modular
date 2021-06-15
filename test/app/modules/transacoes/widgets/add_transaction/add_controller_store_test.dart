@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
 import 'package:penny_saver/app/models/transacao_model.dart';
-import 'package:penny_saver/app/modules/transacoes/widgets/add_transaction/add_controller_store.dart';
+import 'package:penny_saver/app/transacoes/widgets/add_transaction/add_controller_store.dart';
 
 void main() {
   late AddControllerStore store;
