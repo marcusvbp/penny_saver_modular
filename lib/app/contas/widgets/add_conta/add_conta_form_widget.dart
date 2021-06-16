@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/contas/contas_store.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'add_conta_controller_store.dart';
 

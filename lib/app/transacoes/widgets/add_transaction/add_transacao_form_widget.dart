@@ -6,6 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
 import 'package:penny_saver/app/models/source_model.dart';
 import 'package:penny_saver/app/contas/contas_store.dart';
+import 'package:penny_saver/app/models/transacao_model.dart';
 import 'package:penny_saver/app/sources/sources_store.dart';
 import 'package:penny_saver/app/sources/widgets/add_source/add_source_form_widget.dart';
 import 'package:penny_saver/app/transacoes/transacoes_store.dart';
@@ -14,6 +15,15 @@ import '../../../contas/widgets/add_conta/add_conta_form_widget.dart';
 import 'add_controller_store.dart';
 
 class AddTransactionFormWidget extends StatefulWidget {
+  final void Function() onCancel;
+  final void Function(Transacao transacao) onSuccess;
+
+  const AddTransactionFormWidget({
+    Key? key,
+    required this.onCancel,
+    required this.onSuccess,
+  }) : super(key: key);
+
   @override
   _AddTransactionFormWidgetState createState() =>
       _AddTransactionFormWidgetState();
@@ -254,9 +264,7 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {
-                            Modular.to.pop();
-                          },
+                          onPressed: widget.onCancel,
                           child: Text('Cancelar'),
                         ),
                       ),
@@ -267,8 +275,7 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                                   0
                               ? null
                               : () {
-                                  transacoesStore.add(controller.toTransacao());
-                                  Modular.to.pop();
+                                  widget.onSuccess(controller.toTransacao());
                                 },
                           child: Text(
                             controller.valueIsNegative

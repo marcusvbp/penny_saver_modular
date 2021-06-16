@@ -23,4 +23,14 @@ List<Story> formularioStories = [
       },
     ),
   ),
+  // Story(
+  //   section: 'Formulários',
+  //   name: 'Transações',
+  //   builder: (_, k) => AddTransactionFormWidget(
+  //     onCancel: () {},
+  //     onSuccess: (t) {
+  //       print(t.toJson());
+  //     },
+  //   ),
+  // )
 ];

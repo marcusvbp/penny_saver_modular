@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:penny_saver/app/widgets/chip_tile.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
+import 'cards_stories.dart';
 import 'formularios_stories.dart';
 
 void main() => runApp(const MyApp());
@@ -33,6 +35,14 @@ class MyApp extends StatelessWidget {
         ),
         children: [
           ...formularioStories,
+          ...cardStories,
+          Story(
+            name: 'Chip Tile',
+            builder: (_, k) => ChipTile(
+              value: k.text(label: 'Value', initial: 'Chip Tile'),
+              label: k.text(label: 'Label', initial: 'label'),
+            ),
+          )
         ],
       );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:penny_saver/app/transacoes/transacoes_store.dart';
 import '../widgets/add_transaction/add_transacao_form_widget.dart';
 
 class ListTransacoesPage extends StatefulWidget {
@@ -11,6 +12,7 @@ class ListTransacoesPage extends StatefulWidget {
 }
 
 class ListTransacoesPageState extends State<ListTransacoesPage> {
+  final transacoesStore = Modular.get<TransacoesStore>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,17 @@ class ListTransacoesPageState extends State<ListTransacoesPage> {
           showDialog(
             context: context,
             builder: (context) => Dialog(
-              child: SingleChildScrollView(child: AddTransactionFormWidget()),
+              child: SingleChildScrollView(
+                child: AddTransactionFormWidget(
+                  onCancel: () {
+                    Modular.to.pop();
+                  },
+                  onSuccess: (transacao) {
+                    transacoesStore.add(transacao);
+                    Modular.to.pop();
+                  },
+                ),
+              ),
             ),
           );
         },
