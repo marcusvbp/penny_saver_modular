@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:penny_saver/app/sources/sources_store.dart';
+import 'package:penny_saver/app/models/source_model.dart';
 
 import 'add_source_form_controller.dart';
 
 class AddSourceFormWidget extends StatefulWidget {
-  const AddSourceFormWidget({Key? key}) : super(key: key);
+  final void Function() onCancel;
+  final void Function(Source source) onAdd;
+  const AddSourceFormWidget({
+    Key? key,
+    required this.onCancel,
+    required this.onAdd,
+  }) : super(key: key);
 
   @override
   _AddSourceFormWidgetState createState() => _AddSourceFormWidgetState();
@@ -13,7 +18,6 @@ class AddSourceFormWidget extends StatefulWidget {
 
 class _AddSourceFormWidgetState extends State<AddSourceFormWidget> {
   final controller = AddSourceFormStore();
-  final sourcesStore = Modular.get<SourcesStore>();
   late TextEditingController nameFieldEditingController;
   late TextEditingController observationsFieldEditingController;
   final formKey = GlobalKey<FormState>();
@@ -69,9 +73,7 @@ class _AddSourceFormWidgetState extends State<AddSourceFormWidget> {
                 children: [
                   Expanded(
                     child: OutlinedButton(
-                      onPressed: () {
-                        Modular.to.pop();
-                      },
+                      onPressed: widget.onCancel,
                       child: Text('Cancelar'),
                     ),
                   ),
@@ -80,8 +82,7 @@ class _AddSourceFormWidgetState extends State<AddSourceFormWidget> {
                     child: OutlinedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          sourcesStore.addConta(controller.toSource());
-                          Modular.to.pop();
+                          widget.onAdd(controller.toSource());
                         }
                       },
                       child: Text(

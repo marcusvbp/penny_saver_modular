@@ -13,8 +13,8 @@ import 'package:penny_saver/app_modular.dart';
 void main() async {
   var path = '';
   if (!kIsWeb) path = '${Directory.current.path}/lib/app/hive_db';
+  await Hive.initFlutter(path);
   Hive
-    ..initFlutter(path)
     ..registerAdapter(TransacaoAdapter())
     ..registerAdapter(ContaAdapter())
     ..registerAdapter(SourceAdapter());

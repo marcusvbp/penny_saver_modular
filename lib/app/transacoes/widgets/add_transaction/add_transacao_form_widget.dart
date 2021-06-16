@@ -119,6 +119,7 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                       children: [
                         Expanded(
                           child: DropdownButtonFormField<Source>(
+                            value: controller.sourceOrigin,
                             items: sourcesStore.sources
                                 .map(
                                   (e) => DropdownMenuItem<Source>(
@@ -153,7 +154,18 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                                         Theme.of(context).textTheme.headline5,
                                   ),
                                   const SizedBox(height: 20),
-                                  Center(child: AddSourceFormWidget())
+                                  Center(
+                                    child: AddSourceFormWidget(
+                                      onCancel: () {
+                                        Modular.to.pop();
+                                      },
+                                      onAdd: (source) async {
+                                        Modular.to.pop();
+                                        await sourcesStore.addConta(source);
+                                        controller.setSource(source);
+                                      },
+                                    ),
+                                  )
                                 ],
                               ),
                             );
@@ -202,7 +214,18 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                                 style: Theme.of(context).textTheme.headline5,
                               ),
                               const SizedBox(height: 20),
-                              Center(child: AddContaFormWidget())
+                              Center(
+                                child: AddContaFormWidget(
+                                  onCancel: () {
+                                    Modular.to.pop();
+                                  },
+                                  onAdd: (conta) async {
+                                    Modular.to.pop();
+                                    await contasStore.addConta(conta);
+                                    controller.setConta(conta);
+                                  },
+                                ),
+                              )
                             ],
                           ),
                         );

@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/contas/contas_store.dart';
+import 'package:penny_saver/app/models/conta_model.dart';
 import 'add_conta_controller_store.dart';
 
 class AddContaFormWidget extends StatefulWidget {
+  final void Function() onCancel;
+  final void Function(Conta conta) onAdd;
+
+  const AddContaFormWidget({
+    Key? key,
+    required this.onCancel,
+    required this.onAdd,
+  }) : super(key: key);
   @override
   _AddContaFormWidgetState createState() => _AddContaFormWidgetState();
 }
 
 class _AddContaFormWidgetState extends State<AddContaFormWidget> {
   final controller = AddContaControllerStore();
-
-  final constasStore = Modular.get<ContasStore>();
 
   final formKey = GlobalKey<FormState>();
 
@@ -72,9 +79,7 @@ class _AddContaFormWidgetState extends State<AddContaFormWidget> {
                 children: [
                   Expanded(
                     child: OutlinedButton(
-                      onPressed: () {
-                        Modular.to.pop();
-                      },
+                      onPressed: widget.onCancel,
                       child: Text('Cancelar'),
                     ),
                   ),
@@ -83,8 +88,7 @@ class _AddContaFormWidgetState extends State<AddContaFormWidget> {
                     child: OutlinedButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          constasStore.addConta(controller.toConta());
-                          Modular.to.pop();
+                          widget.onAdd(controller.toConta());
                         }
                       },
                       child: Text(
