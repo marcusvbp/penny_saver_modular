@@ -79,7 +79,7 @@ void main() {
         print(t.toJson());
 
         expect(t.runtimeType, Transacao);
-        expect(t.observation.isNotEmpty, true);
+        expect(t.observation!.isNotEmpty, true);
         expect(t.date.runtimeType, DateTime);
         expect(t.value.isFinite, true);
         expect(t.account.runtimeType, Conta);
@@ -100,7 +100,7 @@ void main() {
       print(t.toJson());
 
       expect(t.runtimeType, Transacao);
-      expect(t.observation.isEmpty, true);
+      expect(t.observation!.isEmpty, true);
       expect(t.date.runtimeType, DateTime);
       expect(t.value.isNegative, true);
       expect(t.account.runtimeType, Conta);

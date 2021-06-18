@@ -53,7 +53,7 @@ abstract class _AddControllerStoreBase with Store {
 
   @action
   void populateFromTransation(Transacao transation) {
-    observation = transation.observation;
+    observation = transation.observation ?? '';
     value = transation.value.toString();
     date = transation.date;
     destinationAccount = transation.account;

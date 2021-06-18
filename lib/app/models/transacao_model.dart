@@ -9,7 +9,7 @@ part 'transacao_model.g.dart';
 @HiveType(typeId: 1)
 class Transacao {
   @HiveField(0)
-  final String observation;
+  final String? observation;
   @HiveField(1)
   final double value;
   @HiveField(2)

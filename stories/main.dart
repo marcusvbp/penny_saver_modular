@@ -41,6 +41,15 @@ class MyApp extends StatelessWidget {
             builder: (_, k) => ChipTile(
               value: k.text(label: 'Value', initial: 'Chip Tile'),
               label: k.text(label: 'Label', initial: 'label'),
+              color: k.options(
+                label: 'Colors',
+                initial: Colors.blueGrey,
+                options: [
+                  Option('Verde', Colors.green),
+                  Option('Amarelo', Colors.yellow),
+                  Option('Azul claro', Colors.lightBlue),
+                ],
+              ),
             ),
           )
         ],

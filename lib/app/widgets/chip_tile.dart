@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:penny_saver/app/helpers/colors_helper.dart';
 
 class ChipTile extends StatelessWidget {
   final Color color;
@@ -13,16 +14,7 @@ class ChipTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color labelBgColor = color;
-
-    Color _textColorForBackground(Color backgroundColor) {
-      if (ThemeData.estimateBrightnessForColor(backgroundColor) ==
-          Brightness.dark) {
-        return Colors.white;
-      }
-
-      return Colors.black;
-    }
+    Color labelBgColor = ColorsHelper.darken(color);
 
     return Container(
       clipBehavior: Clip.antiAlias,
@@ -43,9 +35,12 @@ class ChipTile extends StatelessWidget {
                     child: Text(
                       '$label',
                       style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: _textColorForBackground(labelBgColor)),
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsHelper.textColorForBackground(
+                          labelBgColor,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -58,7 +53,7 @@ class ChipTile extends StatelessWidget {
                   value,
                   style: TextStyle(
                     fontSize: 12,
-                    color: _textColorForBackground(color),
+                    color: ColorsHelper.textColorForBackground(color),
                   ),
                 ),
               ),
