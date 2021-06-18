@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
+import 'package:penny_saver/app/widgets/value_field.dart';
 import 'add_conta_controller_store.dart';
 
 class AddContaFormWidget extends StatefulWidget {
@@ -50,22 +51,15 @@ class _AddContaFormWidgetState extends State<AddContaFormWidget> {
               ),
             ),
             const SizedBox(height: 20),
-            TextFormField(
+            ValueField(
               controller: valueInputController,
               onChanged: (v) {
                 controller.setInitialValue(v);
               },
-              keyboardType: TextInputType.number,
-              textAlign: TextAlign.right,
               onTap: () {
                 valueInputController.text = '';
               },
-              validator: controller.validateValue,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Valor Inicial da Conta',
-                prefixText: '\$ ',
-              ),
+              labelText: 'Valor Inicial da Conta',
             ),
             const SizedBox(height: 20),
             SizedBox(

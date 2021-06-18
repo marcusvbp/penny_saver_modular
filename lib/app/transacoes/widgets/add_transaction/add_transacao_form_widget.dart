@@ -1,6 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:penny_saver/app/models/conta_model.dart';
@@ -10,6 +9,7 @@ import 'package:penny_saver/app/models/transacao_model.dart';
 import 'package:penny_saver/app/sources/sources_store.dart';
 import 'package:penny_saver/app/sources/widgets/add_source/add_source_form_widget.dart';
 import 'package:penny_saver/app/transacoes/transacoes_store.dart';
+import 'package:penny_saver/app/widgets/value_field.dart';
 import '../../../contas/widgets/add_conta/add_conta_form_widget.dart';
 
 import 'add_controller_store.dart';
@@ -72,28 +72,16 @@ class _AddTransactionFormWidgetState extends State<AddTransactionFormWidget> {
                   title: Text('Retirada'),
                 ),
                 const SizedBox(height: 20),
-                TextFormField(
+                ValueField(
+                  labelText: 'Valor',
+                  isNegative: controller.valueIsNegative,
                   controller: valueInputController,
-                  onChanged: (v) {
-                    controller.setValue(v);
-                  },
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    RealInputFormatter(centavos: true),
-                  ],
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.right,
                   onTap: () {
                     valueInputController.text = '';
                   },
-                  style: TextStyle(
-                    color: textActionColor,
-                  ),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Valor',
-                    prefixText: '\$ ',
-                  ),
+                  onChanged: (v) {
+                    controller.setValue(v);
+                  },
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
