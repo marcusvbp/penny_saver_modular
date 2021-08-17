@@ -1,6 +1,6 @@
 {
-    "name": "penny_saver",
-    "short_name": "penny_saver",
+    "name": "vidadeinseto_admin",
+    "short_name": "vidadeinseto_admin",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

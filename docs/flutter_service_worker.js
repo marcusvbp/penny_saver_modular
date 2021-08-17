@@ -3,19 +3,25 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "0c57cc2977b9eac6c7fbe9d081358f8b",
-"index.html": "74943a91460eef45a02d4c6f9b556dbd",
-"/": "74943a91460eef45a02d4c6f9b556dbd",
-"main.dart.js": "0c90e421fc72d2bfcd09b54ddb12f982",
+  "version.json": "0e91d38a6e5cf4cbe2936e9a5df252da",
+"index.html": "50894efcbb70c755ac1688153543f6c1",
+"/": "50894efcbb70c755ac1688153543f6c1",
+"main.dart.js": "9bd668ad8f10d3789c9d0cc4db5681e8",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"manifest.json": "57fe43f471370f638efde0ed93bdebc2",
-"assets/AssetManifest.json": "2efbb41d7877d10aac9d091f58ccd7b9",
-"assets/NOTICES": "113a65e663058308b062da211974b885",
-"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
+"manifest.json": "0d0ec059c40637e1a5fd3d22e49831df",
+"assets/AssetManifest.json": "0b1aab756654b7d52a5e336143a3a2c5",
+"assets/NOTICES": "ea8ac565546ea1e787d6aec80c3469bc",
+"assets/FontManifest.json": "ad1a2b33dc8645a9ec31ed1b1f6b573a",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1"
+"assets/packages/flutter_feather_icons/fonts/feather.ttf": "c96dc22ca29a082af83cce866d35cebc",
+"assets/packages/storybook_flutter/assets/README.md": "fbaed1ae60d80596d99545ef45d72803",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/assets/images/select_photo.png": "0b8109da167885fbb0ee55d0ec2a7c52",
+"assets/assets/images/2.0x/select_photo.png": "05c34b57fec2cdab8488a5f302959c10",
+"assets/assets/images/3.0x/select_photo.png": "6f0558077ff1805f783974e4148baca9",
+"assets/assets/images/logo.png": "0a790d64f920bbe5cee421ac48b82c39"
 };
 
 // The application shell files that are downloaded before a service worker can
