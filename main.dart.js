@@ -19150,7 +19150,7 @@ var $async$XK=P.P(function(a,b){if(a===1)return P.Q(b,r)
 while(true)switch(s){case 0:s=2
 return P.Z(T.atP($.aEh(),""),$async$XK)
 case 2:s=3
-return P.Z($.asJ().yS(0,".env"),$async$XK)
+return P.Z($.asJ().yS(0,"dotenv"),$async$XK)
 case 3:q=N.aJf()
 $.bC().c.a=!1
 if($.C==null)N.auP()
